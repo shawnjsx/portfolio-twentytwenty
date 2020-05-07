@@ -34,6 +34,7 @@ const DescriptionBlock = styled.div`
   margin-left: auto;
   padding-left: 2rem;
   padding-right: 10vw;
+  font-family: 'Roboto', sans-serif;
 
   header {
     h1 {

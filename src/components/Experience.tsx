@@ -38,6 +38,7 @@ const ExperienceBlock = styled.div`
   height: 100%;
   margin-left: 3rem;
   position: sticky;
+  font-family: 'Roboto', sans-serif;
 `
 
 const ExperienceList = styled.ul`
