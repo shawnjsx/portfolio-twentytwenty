@@ -1,0 +1,39 @@
+{
+  "me": {
+    "name": "Shawn Sheehan",
+    "location": "Budapest",
+    "description": ["Stuff", "More Stuff", "Even More Stuff", "Wow Even More Stuff"],
+    "experience": [
+      {
+        "company": "UI Centric",
+        "dates": "2019 - 2020",
+        "location": "Budapest",
+        "title": "Senior React Developer"
+      },
+      {
+        "company": "Freelance",
+        "dates": "2018 - 2019",
+        "location": "Budapest",
+        "title": "React Developer"
+      },
+      {
+        "company": "Hello Future",
+        "dates": "2017 - 2018",
+        "location": "Budapest",
+        "title": "Senior React Developer"
+      },
+      {
+        "company": "Truckin",
+        "dates": "2017 - 2017",
+        "location": "Budapest",
+        "title": "React Developer"
+      },
+      {
+        "company": "Freelance",
+        "dates": "2015 - 2017",
+        "location": "Budapest",
+        "title": "Full Stack Engineer"
+      }
+    ]
+  }
+}

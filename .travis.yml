@@ -1,0 +1,18 @@
+language: node_js
+
+branchs:
+  only:
+    - master
+
+node_js:
+  - '12'
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - yarn install
+
+script:
+  - yarn build
