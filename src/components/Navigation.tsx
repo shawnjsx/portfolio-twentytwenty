@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTransitionHistory } from 'react-route-transition'
-import ClipboardJS from 'clipboard'
 
+import useClipBoard from '../hooks/useClipBoard'
 import styled from '../utils/styled'
 
 declare module 'react' {
@@ -16,44 +16,9 @@ declare module 'react' {
 
 const Controls: React.FunctionComponent = () => {
   const history = useTransitionHistory()
+  const [copyRef, helperRef] = useClipBoard()
 
   const { pathname } = useLocation()
-
-  const mailRef = React.useRef<HTMLAnchorElement>(null)
-  const helperRef = React.useRef<HTMLSpanElement>(null)
-
-  React.useEffect(() => {
-    const { current: mail } = mailRef
-    const { current: helper } = helperRef
-
-    if (mail) {
-      new ClipboardJS(mail.innerHTML)
-      handleClipboard()
-    }
-
-    function handleClipboard() {
-      if (mail && helper) {
-        mail.addEventListener('mouseover', () => {
-          helper.innerHTML = 'Copy to clipboard'
-          helper.style.opacity = '1'
-          helper.style.transform = 'translate(-50%, 0)'
-        })
-        mail.addEventListener('mouseleave', () => {
-          helper.innerHTML = ''
-          helper.style.opacity = '0'
-          helper.style.transform = 'translate(-50%, 10px)'
-        })
-        mail.addEventListener('click', () => {
-          helper.innerHTML = 'Copied!'
-          helper.style.opacity = '1'
-          setTimeout(() => {
-            helper.style.opacity = '0'
-            helper.style.transform = 'translate(-50%, 10px)'
-          }, 3e3)
-        })
-      }
-    }
-  }, [])
 
   if (pathname !== '/') {
     return (
@@ -68,7 +33,7 @@ const Controls: React.FunctionComponent = () => {
           linkedin
         </ControlButton>
         <HelperSpan ref={helperRef}></HelperSpan>
-        <ControlButton ref={mailRef} bottom right>
+        <ControlButton ref={copyRef} bottom right>
           shawnjsx@gmail.com
         </ControlButton>
       </nav>
