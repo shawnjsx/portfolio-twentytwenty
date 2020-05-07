@@ -27,6 +27,7 @@ const Cursor: React.FunctionComponent = () => {
     return () => {
       document.removeEventListener('mousemove', move)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   React.useEffect(() => {
