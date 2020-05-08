@@ -1,6 +1,6 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import { useTransitionHistory } from 'react-route-transition'
 
 import useClipBoard from '../hooks/useClipBoard'
 import styled from '../utils/styled'
@@ -15,7 +15,6 @@ declare module 'react' {
 }
 
 const Controls: React.FunctionComponent = () => {
-  const history = useTransitionHistory()
   const [copyRef, helperRef] = useClipBoard()
 
   const { pathname } = useLocation()
@@ -23,14 +22,14 @@ const Controls: React.FunctionComponent = () => {
   if (pathname !== '/') {
     return (
       <nav className="nav">
-        <ControlItem onClick={() => history.push('/')} top left>
-          SHAWN SHEEHAN
-        </ControlItem>
-        <ControlItem onClick={() => history.push('/about')} top right>
-          about
-        </ControlItem>
+        <NavItem to="/" top left>
+          Shawn Sheehan
+        </NavItem>
+        <NavItem to="/about" top right>
+          About
+        </NavItem>
         <ControlButton href="https://www.linkedin.com/in/robotjeans/" target="_blank" bottom left>
-          linkedin
+          Linkedin
         </ControlButton>
         <HelperSpan ref={helperRef}></HelperSpan>
         <ControlButton ref={copyRef} bottom right>
@@ -44,12 +43,12 @@ const Controls: React.FunctionComponent = () => {
 
 export default Controls
 
-const ControlItem = styled.a`
-  color: #fff;
+const NavItem = styled(Link)`
+  color: ${({ theme }) => theme.colors.white};
   mix-blend-mode: difference;
-  font-size: 0.875rem;
+  font-size: 0.675em;
   position: fixed;
-  z-index: 800;
+  z-index: 9999;
   top: ${({ top }) => top && '2rem'};
   bottom: ${({ bottom }) => bottom && '2rem'};
   right: ${({ right }) => right && '2rem'};
@@ -64,11 +63,12 @@ const ControlItem = styled.a`
 `
 
 const ControlButton = styled.a`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
   mix-blend-mode: difference;
-  font-size: 0.875rem;
+  font-size: 0.675em;
   position: fixed;
-  z-index: 800;
+  z-index: 9999;
+  font-family: 'Roboto', sans-serif;
   top: ${({ top }) => top && '2rem'};
   bottom: ${({ bottom }) => bottom && '2rem'};
   right: ${({ right }) => right && '2rem'};
@@ -86,7 +86,6 @@ const HelperSpan = styled.span`
   position: absolute;
   bottom: 5rem;
   right: 2rem;
-  font-weight: 400;
-  font-size: 0.68rem;
+  font-size: 0.675em;
   text-align: center;
 `

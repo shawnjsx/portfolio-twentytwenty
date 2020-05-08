@@ -5,21 +5,17 @@ interface Props {
   title?: string
 }
 
-const SEOHead = ({ title = 'Shawn Sheehan | Web Developer' }: Props) => {
+const SEOHead = ({ title = 'Shawn Sheehan' }: Props) => {
   return (
     <Helmet>
       <meta charSet="utf-8" />
-      <title>{title}</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <link rel="icon" href="favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900&display=swap"
-        rel="stylesheet"
-      ></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,600,700&display=swap"
-        rel="stylesheet"
-      ></link>
+      <meta name="description" content="shawn sheehan web developer personal webspace 2020" />
+      <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+      <link rel="manifest" href="manifest.json" />
+      <title>{title}</title>
     </Helmet>
   )
 }
