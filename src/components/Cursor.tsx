@@ -41,7 +41,7 @@ const Cursor: React.FunctionComponent = () => {
 
   return (
     <CursorDiv ref={cursorRef}>
-      <span ref={textRef}>Enter</span>
+      <span ref={textRef}></span>
     </CursorDiv>
   )
 }
@@ -56,8 +56,8 @@ const CursorDiv = styled.div`
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
-  width: 90px;
-  height: 90px;
+  width: 10.71em;
+  height: 10.71em;
   border-radius: 50%;
   position: fixed;
   top: -90px;
@@ -67,6 +67,7 @@ const CursorDiv = styled.div`
   align-items: center;
   pointer-events: none;
   z-index: 9999;
+  opacity: 0.85;
 
   span {
     opacity: 1;

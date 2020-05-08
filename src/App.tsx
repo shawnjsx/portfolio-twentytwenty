@@ -7,12 +7,14 @@ import Layout from './components/Layout'
 import Noise from './components/Noise'
 import Cursor from './components/Cursor'
 import { GlobalStyles, theme } from './shared/styles'
+import { GlobalFonts } from './shared/fonts'
 import SplashPage from './pages/splash'
 import AboutPage from './pages/about'
 
 const App: React.FunctionComponent = () => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalFonts />
       <GlobalStyles />
       <Cursor />
       <BrowserRouter>

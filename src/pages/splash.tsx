@@ -1,40 +1,13 @@
 import * as React from 'react'
 import { keyframes } from '@emotion/core'
-import gsap from 'gsap'
-import { useTransition, useTransitionHistory } from 'react-route-transition'
+import { useHistory } from 'react-router-dom'
 
 import SplashImage from '../components/SplashImage'
 import styled from '../utils/styled'
 
 const SplashPage: React.FunctionComponent = () => {
-  const history = useTransitionHistory()
-
+  const history = useHistory()
   const [isPlaying, setIsPlaying] = React.useState(false)
-
-  useTransition({
-    handlers: [
-      {
-        path: '/',
-        onEnter: async () => {
-          await gsap
-            .timeline()
-            .fromTo(
-              '[data-home-main] > *, [data-home-footer]',
-              { opacity: 0, y: 20 },
-              { duration: 0.6, stagger: 0.125, y: 0, opacity: 1 }
-            )
-        },
-        onLeave: async () => {
-          await gsap.timeline().to('[data-home-main] > *, [data-home-footer]', {
-            duration: 0.6,
-            stagger: 0.125,
-            opacity: 0,
-            y: -20,
-          })
-        },
-      },
-    ],
-  })
 
   const toggleAudio = () => {
     setIsPlaying(!isPlaying)
@@ -42,7 +15,7 @@ const SplashPage: React.FunctionComponent = () => {
 
   const handleRoute = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    history.push('/about')
+    history.push('/discover')
   }
 
   return (
